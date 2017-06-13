@@ -14,6 +14,9 @@ The stateful-set contains a `kubectl` sidecar proxy that it uses to communicate 
 
 #### Management GUI
 You can access the management GUI locally by port-forwarding `kubectl port-forward rabbitmq-0 15672` and visiting `localhost:15672`. If you want to access it in production, you are most likely using proxy of some kind, so configure it accordingly.
+#### Todo
+
+- [ ] Remove unecessary/unused configuration
 
 #### Notes
 This project is based upon [kubernetes-rabbitmq-cluster](https://github.com/nanit/kubernetes-rabbitmq-cluster) and [this blog post](https://wesmorgan.svbtle.com/rabbitmq-cluster-on-kubernetes-with-statefulsets).
