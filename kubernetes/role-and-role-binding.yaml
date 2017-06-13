@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: RoleBinding
+metadata:
+  name: rabbitmq
+subjects:
+- kind: ServiceAccount
+  name: rabbitmq
+roleRef:
+  kind: Role
+  name: rabbitmq
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: Role
+metadata:
+  name: rabbitmq
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  resourceNames: ["rabbitmq", "rabbitmq-credentials"]
+  verbs: ["get"]
+- apiGroups: ["apps"]
+  resources: ["statefulsets", "statefulsets/status"]
+  verbs: ["get", "list", "watch"]
